@@ -3,6 +3,9 @@
       <div class="card elevation">
         <div class="content">
           <div class="text">
+            <div class="paw">
+                <img src="../assets/huellapet.png" alt="Paw" />
+              </div>
             <h1>Me leva pra Casa</h1>
             <p>
               Em nosso abrigo, oferecemos um lar temporário e amoroso para cães necessitados.
@@ -93,5 +96,11 @@
       height: auto;
       border-radius: 8px;
     }
+
+    .paw img {
+    width: 26px; 
+    height: 26px;
+    margin-right: 10px;
+  }
   </style>
   
