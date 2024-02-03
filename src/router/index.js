@@ -1,6 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
+import HomeView from '../views/HomeView.vue'
+import PetsList from '../views/PetsList.vue'
 import Main from '../views/Main.vue'
+import PetsProfile from '../views/PetsProfile.vue'
 import Home1 from '../views/pessoa1/Home.vue'
 import Home2 from '../views/pessoa2/Home.vue'
 import Home3 from '../views/pessoa3/Home.vue'
@@ -11,6 +14,21 @@ const router = createRouter({
   routes: [
     {
       path: '/',
+      name: 'home',
+      component: HomeView
+    },
+    {
+      path: '/pets_adocao',
+      name: 'pets_adocao',
+      component: PetsList
+    },
+    {
+      path: '/pets_adocao/perfil',
+      name: 'pets_adocao/perfil',
+      component: PetsProfile
+    },
+    {
+      path: '/main',
       name: 'main',
       component: Main
     },
