@@ -10,6 +10,27 @@
     </div>
   </template>
 
+<script>
+import axios from 'axios'
+
+export default {
+  data() {
+    return {
+      pets: []  
+    };
+  },
+  mounted() {
+    axios.get("http://127.0.0.1:8000/api/pets/adocao")
+      .then(response => {
+        this.pets = response.data;
+      })
+      .catch(() => {
+        alert("Houve um erro. Entre em contato com ONG");
+      });
+  }
+}
+</script>
+
 
 <style scoped>
 .container {
