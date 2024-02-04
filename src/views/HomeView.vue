@@ -12,7 +12,7 @@
               Trabalhamos para encontrar lares permanentes e amorosos para cada um de nossos amigos peludos.
               Adote hoje e mude uma vida!
             </p>
-            <router-link to="pets-adocao">
+            <router-link to="pets-pesquisa">
               <button class="button-action">Adotar</button>
             </router-link>
           </div>
