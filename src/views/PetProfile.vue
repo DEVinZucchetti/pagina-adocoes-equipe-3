@@ -14,7 +14,7 @@
         <button @click="showAdoptionForm" class="button-action"><h3>Adotar</h3></button>
     </div>
   
-        <div v-if="showForm" class="form">
+        <form v-if="showForm" class="form"  @submit.prevent="handleSubmit">
           <div class="input-form">
             <h1>Poucos passos para adotar {{ pet.name }} . . .</h1>
             <label for="name">Nome:</label>
@@ -29,8 +29,8 @@
             <label for="observations">Fale um pouco sobre a sua motivação de adotar esse pet:</label>
             <textarea v-model="observations" id="observations" class="form-input" rows="4" required></textarea>
           </div>
-          <button @click="submitAdoptionForm" class="button-action"><h3>Cadastrar</h3></button>
-        </div>
+          <button type="submit"><h3>Cadastrar</h3></button>
+        </form>
       </div>
     </div>
   </template>
@@ -61,17 +61,23 @@
       showAdoptionForm() {
         this.showForm = true;
       },
+
+      handleSubmit(){
+        axios.post("http://127.0.0.1:8000/api/adocoes", {
+            name: this.name,
+            email: this.email,
+            contact: this.contact,
+            observations: this.observations,
+        })
+        .then(() => {
+            alert("Cadastrado com sucesso")
+        })
+        .catch(() => {
+            alert("Erro ao tentar realizar a adocao")
+        })
+    },
   
-      submitAdoptionForm() {
-        // Puedes manejar la lógica de envío del formulario aquí
-        console.log('Formulario de Adopción Enviado:', this.name, this.email, this.contact, this.observations);
-        // Reinicia el formulario y oculta el formulario después de enviar
-        this.name = '';
-        this.email = '';
-        this.contact = '';
-        this.observations = '';
-        this.showForm = false;
-      },
+    
     },
   };
   </script>
@@ -92,13 +98,18 @@
     color: #f5a046;
   }
   .card1 {
-    background-color: #ffff;
-    padding: 20px 60px;
-    margin: 10px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px #4CAF50;
-    color: #f5a046;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffff;
+  padding: 20px 60px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px #4CAF50;
+  color: #f5a046;
+}
+
   
   .pet-photo {
     width: 100%;
