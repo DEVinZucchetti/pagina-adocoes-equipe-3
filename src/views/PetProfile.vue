@@ -106,10 +106,9 @@
   padding: 20px 60px;
   margin: 10px;
   border-radius: 10px;
-  box-shadow: 0 4px 15px #4CAF50;
+  box-shadow: 0 4px 15px #4CAF50;  
   color: #f5a046;
 }
-
   
   .pet-photo {
     width: 100%;

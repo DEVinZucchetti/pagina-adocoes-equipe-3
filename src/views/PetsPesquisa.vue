@@ -94,7 +94,7 @@
   }
 
   .input-style {
-    border-color: #f5a046;
+    border-color: #3498db;
     border-radius: 10px;
     padding: 8px 5px;    
   }  

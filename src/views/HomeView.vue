@@ -33,9 +33,16 @@
     }
   
     .card {
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffff;
+    padding: 20px 60px;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px #4CAF50;
+    color: #f5a046;
     }
   
     .elevation {
@@ -43,7 +50,7 @@
     }
   
     .elevation:hover {
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 8px 16px #3498db;
     }
   
     .content {
@@ -83,8 +90,8 @@
     }
   
     button:hover {
-      background-color: #f50057;
-    }
+    background-color: #4CAF50;
+  }
   
     .image {
       flex: 1;
