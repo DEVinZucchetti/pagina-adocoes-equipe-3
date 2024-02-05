@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 import HomeView from '../views/Eliana/HomeView.vue'
-import PetsList from '../views/PetsList.vue'
-import PetsPesquisa from '../views/PetsPesquisa.vue'
+import PetsList from '../views/Eliana/PetsList.vue'
+import PetsPesquisa from '../views/Eliana/PetsPesquisa.vue'
 import Main from '../views/Main.vue'
-import PetProfile from '../views/PetProfile.vue'
+import PetProfile from '../views/Eliana/PetProfile.vue'
 import Home1 from '../views/pessoa1/Home.vue'
 import Home2 from '../views/pessoa2/Home.vue'
 import Home3 from '../views/pessoa3/Home.vue'
