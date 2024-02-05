@@ -4,7 +4,7 @@
         <div class="content">
           <div class="text">
             <div class="paw">
-                <img src="../assets/huellapet.png" alt="Paw" />
+                <img src="../Eliana/huellapet.png" alt="Paw" />
               </div>
             <h1>Me leva pra Casa</h1>
             <p>
@@ -17,7 +17,7 @@
             </router-link>
           </div>
           <div class="image">
-            <img src="../assets/imagem_pet.png" alt="Cães no abrigo">
+            <img src="../Eliana/imagem_pet.png" alt="Cães no abrigo">
           </div>
         </div>
       </div>
