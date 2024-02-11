@@ -3,7 +3,7 @@
   <div class="container">
     <h1>Adote um amigo !</h1>
     <div class="pet-list">
-      <div class="pet-item" v-for="pet in pets" @click="redirectToProfile(pet.id)">
+      <div class="pet-item" v-for="pet in pets" @click="redirectToProfile(pet.id)" data-test="item-pet">
         <img src="https://i.imgflip.com/5y7m17.png" />
         <span>{{ pet.pet_name }}</span>
       </div>
@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+import PetService from '../../services/PetService'
 
 export default {
   data() {
@@ -26,10 +26,9 @@ export default {
     }
   },
   mounted() {
-    axios
-      .get('http://localhost:8000/api/pets/adocao')
-      .then((response) => {
-        this.pets = response.data
+      PetService.getAllPets()
+      .then((data) => {
+        this.pets = data
       })
       .catch(() => alert('Houve um erro. Entre em contato com a ONG'))
   }
