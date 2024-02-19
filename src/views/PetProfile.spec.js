@@ -39,4 +39,23 @@ describe("Tela de perfil do pet", () => {
 
         expect(component).toBeTruthy()
     })
+
+    it("Espera-se que exiba as informações do pet", async () => {
+        const component = mount(PetProfile, {
+            global: {
+                mocks: {
+                    $route: mockRoute
+                }
+            }
+        })
+
+        await flushPromises()
+
+        expect(component.text()).toContain("Amigo: Caramelo")
+        expect(component.text()).toContain("Raça: Huski")
+        expect(component.text()).toContain("IDADE: 6 ANO(S)")
+        expect(component.text()).toContain("Peso: 10 KG")
+        expect(component.text()).toContain("Porte: MEDIUM")
+    })
+
 })
