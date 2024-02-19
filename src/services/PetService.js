@@ -7,6 +7,11 @@ class PetService{
         return response.data
 
     }
+
+    async getOnePet(id) {
+        const response = await axios.get(`http://127.0.0.1:8000/api/pets/${id}/adocao`)
+        return response.data
+      }
 }
 
 export default new PetService
