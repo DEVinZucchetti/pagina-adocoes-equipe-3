@@ -1,7 +1,7 @@
 import { mount } from "@vue/test-utils";
 import { describe, expect, it,vi } from "vitest";
-import PetsList from './PetsList.vue';
-import PetService from "@services/PetService"
+import PetsList from './PetsList.vue'
+import PetService from "@/services/PetService";
 
 describe("Tela de Listagem de Pets", () => {
 
@@ -34,10 +34,32 @@ describe("Tela de Listagem de Pets", () => {
 
         await flushPromises()
 
-        expect(component.text()).toContain("Dog")
-        expect(component.text()).toContain("Cat")
+        expect(component.text()).toContain("Bruno")
+        expect(component.text()).toContain("Caramelo")
 
-        expect(component.findAll("[data-test='item-pet']")).toHaveLength(3)
+        expect(component.findAll("[data-test='item-pet']")).toHaveLength(2)
+    })
+
+    it("Espera-se que navegue para a tela de perfil do pet clicado", async () => {
+
+        const mockRouter = {
+            push: vi.fn()
+        }
+
+        const component = mount(PetsList, {
+            global: {
+                mocks: {
+                    $router: mockRouter
+                }
+            }
+        })
+
+        await flushPromises()
+
+        component.findAll("[data-test='item-pet']")[0].trigger("click")
+
+        expect(mockRouter.push).toHaveBeenCalledWith('/pets-adocao/1/perfil')
+        
     })
 
 })

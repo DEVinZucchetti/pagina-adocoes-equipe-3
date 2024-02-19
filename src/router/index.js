@@ -28,13 +28,7 @@ const router = createRouter({
       path: '/pets-pesquisa',
       name: 'PetsPesquisa',
       component: PetsPesquisa
-    },
-    {
-      path: '/main',
-      name: 'main',
-      component: Main
     },  
-   
   ]
 })
 
