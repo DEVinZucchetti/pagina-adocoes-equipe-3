@@ -7,7 +7,7 @@ describe("Tela de perfil do pet", () => {
 
     const mockRoute = {
         params: {
-            id: 1
+            id: 2
         }
     }
 
@@ -56,6 +56,36 @@ describe("Tela de perfil do pet", () => {
         expect(component.text()).toContain("IDADE: 6 ANO(S)")
         expect(component.text()).toContain("Peso: 10 KG")
         expect(component.text()).toContain("Porte: MEDIUM")
+    })
+
+    it("Espera-se que ao submeter o formulário, seja enviado os dados corretamente", async () => {
+
+        const adoptPet = vi.spyOn(PetService, 'adoptPet').mockResolvedValue({})
+
+        const component = mount(PetProfile, {
+            global: {
+                mocks: {
+                    $route: mockRoute
+                }
+            }
+        })
+
+        await flushPromises()
+
+        component.get("[data-test='input-name']").setValue("Maria")
+        component.get("[data-test='input-contact']").setValue("4002-8922")
+        component.get("[data-test='input-email']").setValue("maria@gmail.com")
+        component.get("[data-test='textarea-observations']").setValue("gosto de cachorro")
+        component.get("[data-test='submit-button']").trigger("submit")
+
+        expect(adoptPet).toBeCalledWith({
+            name: 'Maria',
+            email: 'maria@gmail.com',
+            contact: '4002-8922',
+            cpf: "",
+            observations: 'gosto de cachorro',
+            pet_id: 2,
+        })
     })
 
 })
