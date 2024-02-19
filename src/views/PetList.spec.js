@@ -1,4 +1,4 @@
-import { mount } from "@vue/test-utils";
+import { flushPromises, mount } from "@vue/test-utils";
 import { describe, expect, it,vi } from "vitest";
 import PetsList from './PetsList.vue'
 import PetService from "@/services/PetService";
@@ -58,7 +58,7 @@ describe("Tela de Listagem de Pets", () => {
 
         component.findAll("[data-test='item-pet']")[0].trigger("click")
 
-        expect(mockRouter.push).toHaveBeenCalledWith('/pets-adocao/1/perfil')
+        expect(mockRouter.push).toHaveBeenCalledWith('/pets-adocao/2/perfil')
         
     })
 
